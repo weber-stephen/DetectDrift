@@ -1,0 +1,1 @@
+Run `npm run build` and `node dist/cli.js check --config examples/support-triage/driftdetect.json --format json` for offline validation. `run` may make paid model calls when pointed at user commands; only fixture runs are free.

@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "number",
+      "const": 1
+    },
+    "cases": {
+      "minItems": 1,
+      "maxItems": 10,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9-]{1,64}$"
+          },
+          "command": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "input": {
+            "type": "string"
+          },
+          "requiredEnv": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+            }
+          },
+          "assert": {
+            "type": "object",
+            "properties": {
+              "json": {
+                "type": "boolean"
+              },
+              "fields": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string",
+                        "number",
+                        "boolean",
+                        "object",
+                        "array",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "path",
+                    "type"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "contains": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "notContains": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "command",
+          "input",
+          "requiredEnv",
+          "assert"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "version",
+    "cases"
+  ],
+  "additionalProperties": false
+}

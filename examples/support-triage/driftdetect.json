@@ -1,0 +1,1 @@
+{"version":1,"cases":[{"id":"support-triage-json","command":["node","examples/support-triage/classify.mjs"],"input":"Classify: The customer cannot log in to their account.","requiredEnv":[],"assert":{"json":true,"fields":[{"path":"/category","type":"string"},{"path":"/urgent","type":"boolean"}],"contains":["category"],"notContains":["password"]}}]}
