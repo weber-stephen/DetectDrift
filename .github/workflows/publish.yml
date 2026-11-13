@@ -6,7 +6,8 @@ permissions:
   contents: read
 jobs:
   publish:
-    if: github.repository == 'weber-stephen/DetectDrift'
+    # The first npm package version is published interactively before trusted publishing can be configured.
+    if: github.repository == 'weber-stephen/DetectDrift' && github.ref_name != 'v0.1.1'
     runs-on: ubuntu-latest
     environment: npm-release
     permissions:

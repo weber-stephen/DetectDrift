@@ -4,7 +4,7 @@ DriftDetect runs repository-owned commands and checks their stdout against deter
 
 ## Quick start
 
-Use Node.js 24. Install `@weber-stephen/driftdetect` at an exact version in your repository and commit its lockfile. Copy the [example case file](examples/support-triage/driftdetect.json) and [workflow](examples/support-triage/.github/workflows/driftdetect.yml), then replace the fixture command with your application entrypoint. The [setup skill](skills/driftdetect-setup/SKILL.md) guides this change. The [JSON Schema](driftdetect.schema.json) describes the config shape; offline `check` also enforces cross-field rules.
+Use Node.js 24. Install `@weberstephen/driftdetect` at an exact version in your repository and commit its lockfile. Copy the [example case file](examples/support-triage/driftdetect.json) and [workflow](examples/support-triage/.github/workflows/driftdetect.yml), then replace the fixture command with your application entrypoint. The [setup skill](skills/driftdetect-setup/SKILL.md) guides this change. The [JSON Schema](driftdetect.schema.json) describes the config shape; offline `check` also enforces cross-field rules.
 
 ```sh
 ./node_modules/.bin/driftdetect check --config driftdetect.json --format json
